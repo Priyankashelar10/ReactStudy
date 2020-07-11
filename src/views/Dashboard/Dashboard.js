@@ -54,15 +54,34 @@ class Dashboard1 extends React.Component {
     //   .then((res) => res.text())
     //   .then((res) => this.setState({ apiResponse: res }));
 
-    axios.get("http://localhost:9000/testAPI")
-    .then((res) => {
-      const responceFromAPI = res.data;
-      this.setState({  apiResponse: res.data  });
+    axios.get("http://localhost:9000/testAPI").then((res) => {
+      this.setState({ apiResponse: res.data });
     });
   }
 
+  FirstPostRequest() {
+    var postData = {
+      username: "Priya",
+      password: "Priya1",
+    };
+    const headers = {
+      "Content-Type": "application/json",
+      Authorization: "JWT fefege...",
+    };
+
+    axios
+      .post("http://localhost:9000/authUser", postData, {
+        headers: headers,
+      })
+      .then((res) => {
+        debugger;
+        this.setState({ apiResponse: res.data });
+      });
+  }
+
   componentDidMount() {
-    this.callAPI();
+   // this.callAPI();
+   this.FirstPostRequest();
   }
 
   render() {
@@ -273,7 +292,7 @@ class Dashboard1 extends React.Component {
               <CardHeader color="warning">
                 <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
                 <p className={classes.cardCategoryWhite}>
-                  New employees on 15th September, 2016
+                  New employees on 15th September, 2016 check
                 </p>
               </CardHeader>
               <CardBody>
