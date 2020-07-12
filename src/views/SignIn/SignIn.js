@@ -68,6 +68,7 @@ export default function SignIn() {
       if (res.data.validUser == true) {
         //return <Redirect to="/admin/" />;
         localStorage.setItem("authTokens", true);
+      //  localStorage.setItem("authTokens", true);
         history.push("/admin");
       }
     });
