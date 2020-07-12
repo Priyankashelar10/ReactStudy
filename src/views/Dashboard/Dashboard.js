@@ -55,7 +55,7 @@ class Dashboard1 extends React.Component {
     //   .then((res) => this.setState({ apiResponse: res }));
 
     axios.get("http://localhost:9000/testAPI").then((res) => {
-      this.setState({ apiResponse: res.data });
+      this.setState({ apiResponse: res.data});
     });
   }
 
@@ -75,7 +75,7 @@ class Dashboard1 extends React.Component {
       })
       .then((res) => {
         debugger;
-        this.setState({ apiResponse: res.data });
+       // this.setState({ apiResponse: res.data });
       });
   }
 
