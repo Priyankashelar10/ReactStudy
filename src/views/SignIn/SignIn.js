@@ -13,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 function Copyright() {
@@ -65,7 +64,7 @@ export default function SignIn() {
       console.log(res);
       console.log(res.data);
 
-      if (res.data.validUser == true) {
+      if (res.data.validUser === true) {
         //return <Redirect to="/admin/" />;
         localStorage.setItem("authTokens", true);
       //  localStorage.setItem("authTokens", true);

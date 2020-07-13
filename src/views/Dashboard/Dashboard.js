@@ -2,7 +2,7 @@ import React from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {withStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 
 import axios from "axios";
@@ -42,7 +42,6 @@ import {
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
-const useStyles = makeStyles(styles);
 class Dashboard1 extends React.Component {
   constructor(props) {
     super(props);
@@ -85,7 +84,6 @@ class Dashboard1 extends React.Component {
   }
 
   render() {
-    //const classes = useStyles();
     const { classes } = this.props;
     // const classes = {};
     return (
