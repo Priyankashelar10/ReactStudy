@@ -49,7 +49,7 @@ const dashboardRoutes = [
   },
   {
     path: "/AddParkingDetails",
-    name: "AddParkingDetails",
+    name: "Add Parking Details",
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: AddParkingDetailsPage,
