@@ -36,6 +36,8 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.js";
 
+import AddParkingDetailsPage from "views/Parking/AddParkingDetails.js";
+
 const dashboardRoutes = [
   {
     path: "/dashboard",
@@ -43,6 +45,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: DashboardPage,
+    layout: "/admin"
+  },
+  {
+    path: "/AddParkingDetails",
+    name: "AddParkingDetails",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: AddParkingDetailsPage,
     layout: "/admin"
   },
   {
