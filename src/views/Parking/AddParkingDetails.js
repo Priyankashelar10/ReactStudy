@@ -1,32 +1,31 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
-import Icon from "@material-ui/core/Icon";
 import PropTypes from "prop-types";
-import axios from "axios";
 
-import InputLabel from "@material-ui/core/InputLabel";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
+import TextField from "@material-ui/core/TextField";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
-import CardAvatar from "components/Card/CardAvatar.js";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 
-import avatar from "assets/img/faces/marc.jpg";
-
 // @material-ui/icons
-import Warning from "@material-ui/icons/Warning";
 
 import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js";
 
 class AddParkingDetails extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = {
+      flatNo: "304",
+      firstName: "Priyanks",
+      lastName: "shelar",
+      parkingNo: "19",
+    };
   }
 
   render() {
@@ -46,43 +45,37 @@ class AddParkingDetails extends React.Component {
               <CardBody>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={5}>
-                    <CustomInput
-                      labelText="Flat no."
+                    <TextField
                       id="flat-no"
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      label="Flat no"
+                      value={this.state.flatNo}
                     />
                   </GridItem>
                 </GridContainer>
+                <br></br>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={3}>
-                    <CustomInput
-                      labelText="Owner name"
+                    <TextField
                       id="owner-name"
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      label="Owner name"
+                      value={this.state.firstName}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={4}>
-                    <CustomInput
-                      labelText="Surname"
+                  <TextField
                       id="surname"
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                      label="Surname"
+                      value={this.state.lastName}
                     />
                   </GridItem>
                 </GridContainer>
+                <br></br>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                    <CustomInput
-                      labelText="Parking no."
-                      id="parking_no"
-                      formControlProps={{
-                        fullWidth: true,
-                      }}
+                  <TextField
+                      id="parking-no"
+                      label="Parking no."
+                      value={this.state.parkingNo}
                     />
                   </GridItem>
                 </GridContainer>
@@ -100,6 +93,8 @@ class AddParkingDetails extends React.Component {
 
 AddParkingDetails.propTypes = {
   classes: PropTypes.object.isRequired,
+  flatNo : PropTypes.number,
+
 };
 
 export default withStyles(styles)(AddParkingDetails);
