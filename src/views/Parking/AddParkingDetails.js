@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import CustomInput from "components/CustomInput/CustomInput.js";
 import TextField from "@material-ui/core/TextField";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
@@ -21,11 +20,23 @@ class AddParkingDetails extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      flatNo: "304",
-      firstName: "Priyanks",
-      lastName: "shelar",
-      parkingNo: "19",
+      flatNo: "",
+      firstName: "",
+      lastName: "",
+      parkingNo: "",
     };
+  }
+
+  btnAddParking = (event) => {
+    console.log("Clicked add parking deatails button");
+  };
+
+  handletextboxChange = (e) => {
+    this.setState({ [e.target.id]: [e.target.value] }); //working correctly
+  };
+
+  componentDidMount() {
+    // this.btnAddParking();
   }
 
   render() {
@@ -46,9 +57,10 @@ class AddParkingDetails extends React.Component {
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={5}>
                     <TextField
-                      id="flat-no"
+                      id="flatNo"
                       label="Flat no"
                       value={this.state.flatNo}
+                      onChange={this.handletextboxChange}
                     />
                   </GridItem>
                 </GridContainer>
@@ -56,32 +68,37 @@ class AddParkingDetails extends React.Component {
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={3}>
                     <TextField
-                      id="owner-name"
+                      id="firstName"
                       label="Owner name"
                       value={this.state.firstName}
+                      onChange={this.handletextboxChange}
                     />
                   </GridItem>
                   <GridItem xs={12} sm={12} md={4}>
-                  <TextField
-                      id="surname"
+                    <TextField
+                      id="lastName"
                       label="Surname"
                       value={this.state.lastName}
+                      onChange={this.handletextboxChange}
                     />
                   </GridItem>
                 </GridContainer>
                 <br></br>
                 <GridContainer>
                   <GridItem xs={12} sm={12} md={6}>
-                  <TextField
-                      id="parking-no"
+                    <TextField
+                      id="parkingNo"
                       label="Parking no."
                       value={this.state.parkingNo}
+                      onChange={this.handletextboxChange}
                     />
                   </GridItem>
                 </GridContainer>
               </CardBody>
               <CardFooter>
-                <Button color="primary">Add parking</Button>
+                <Button color="primary" onClick={this.btnAddParking}>
+                  Add parking
+                </Button>
               </CardFooter>
             </Card>
           </GridItem>
@@ -93,8 +110,6 @@ class AddParkingDetails extends React.Component {
 
 AddParkingDetails.propTypes = {
   classes: PropTypes.object.isRequired,
-  flatNo : PropTypes.number,
-
 };
 
 export default withStyles(styles)(AddParkingDetails);
