@@ -2,7 +2,8 @@ import {
   successColor,
   whiteColor,
   grayColor,
-  hexToRgb
+  hexToRgb,
+  redColor
 } from "assets/jss/material-dashboard-react.js";
 
 const dashboardStyle = {
@@ -44,6 +45,13 @@ const dashboardStyle = {
   },
   cardCategoryWhite: {
     color: "rgba(" + hexToRgb(whiteColor) + ",.62)",
+    margin: "0",
+    fontSize: "14px",
+    marginTop: "0",
+    marginBottom: "0"
+  },
+  cardCategoryRed: {
+    color: "rgba(" + hexToRgb(redColor) + ",.62)",
     margin: "0",
     fontSize: "14px",
     marginTop: "0",

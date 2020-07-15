@@ -24,15 +24,54 @@ class AddParkingDetails extends React.Component {
       firstName: "",
       lastName: "",
       parkingNo: "",
+      validFlatNo: "",
+      validFirstName: "",
+      validLastName: "",
+      validParkingNo: "",
     };
   }
+  validateForm = () => {
+    let isFormValidate = true;
+    if (this.state.flatNo.length === 0) {
+      isFormValidate = false;
+     this.setState({ validFlatNo : "Required flat No."});
+    } else {
+      this.setState({validFlatNo : ""});
+    }
+    if (this.state.firstName.length === 0) {
+      isFormValidate = false;
+      this.setState({ validFirstName : "Required First nme"});
+    } else {
+      this.setState({validFirstName : ""});
+    }
+
+    if (this.state.lastName.length === 0) {
+      isFormValidate = false;
+      this.setState({ validLastName : "Required last Name"});
+    } else {
+      this.setState({validLastName : ""});
+    }
+
+    if (this.state.parkingNo.length === 0) {
+      isFormValidate = false;
+      this.setState({ validParkingNo : "Required parking No."});
+    } else {
+      this.setState({validParkingNo : ""});
+    }
+    return isFormValidate;
+  };
 
   btnAddParking = (event) => {
-    console.log("Clicked add parking deatails button");
+    if (this.validateForm()) {
+      console.log("Valid form");
+    } else {
+      console.log("not valid  form");
+    }
   };
 
   handletextboxChange = (e) => {
-    this.setState({ [e.target.id]: [e.target.value] }); //working correctly
+    const value = e.target.value;
+    this.setState({ [e.target.id]: value }); //working correctly
   };
 
   componentDidMount() {
@@ -49,7 +88,7 @@ class AddParkingDetails extends React.Component {
             <Card>
               <CardHeader color="primary">
                 <h4 className={classes.cardTitleWhite}>Parking Details</h4>
-                <p className={classes.cardCategoryWhite}>
+                <p className={classes.cardCategorywhite}>
                   Complete your profile
                 </p>
               </CardHeader>
@@ -62,6 +101,9 @@ class AddParkingDetails extends React.Component {
                       value={this.state.flatNo}
                       onChange={this.handletextboxChange}
                     />
+                    <p className={classes.cardCategoryRed}>
+                      {this.state.validFlatNo}
+                    </p>
                   </GridItem>
                 </GridContainer>
                 <br></br>
@@ -73,6 +115,9 @@ class AddParkingDetails extends React.Component {
                       value={this.state.firstName}
                       onChange={this.handletextboxChange}
                     />
+                    <p className={classes.cardCategoryRed}>
+                      {this.state.validFirstName}
+                    </p>
                   </GridItem>
                   <GridItem xs={12} sm={12} md={4}>
                     <TextField
@@ -81,6 +126,9 @@ class AddParkingDetails extends React.Component {
                       value={this.state.lastName}
                       onChange={this.handletextboxChange}
                     />
+                    <p className={classes.cardCategoryRed}>
+                      {this.state.validLastName}
+                    </p>
                   </GridItem>
                 </GridContainer>
                 <br></br>
@@ -92,6 +140,9 @@ class AddParkingDetails extends React.Component {
                       value={this.state.parkingNo}
                       onChange={this.handletextboxChange}
                     />
+                    <p className={classes.cardCategoryRed}>
+                      {this.state.validParkingNo}
+                    </p>
                   </GridItem>
                 </GridContainer>
               </CardBody>

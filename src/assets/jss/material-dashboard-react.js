@@ -92,6 +92,7 @@ const grayColor = [
 ];
 const blackColor = "#000";
 const whiteColor = "#FFF";
+const redColor = "#FF0000";
 
 const boxShadow = {
   boxShadow:
@@ -280,6 +281,7 @@ export {
   grayColor,
   blackColor,
   whiteColor,
+  redColor,
   primaryBoxShadow,
   infoBoxShadow,
   successBoxShadow,
