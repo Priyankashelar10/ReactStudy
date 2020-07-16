@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -52,12 +52,15 @@ export default function SignIn() {
   const classes = useStyles();
   const history = useHistory();
 
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   const handleSubmit = (event) => {
-   event.preventDefault();
+    event.preventDefault();
 
     const userData = {
-      username: "priya",
-      password: "priya1",
+      username: { username },
+      password: { password },
     };
 
     axios.post(`http://localhost:9000/authUser`, { userData }).then((res) => {
@@ -67,7 +70,7 @@ export default function SignIn() {
       if (res.data.validUser === true) {
         //return <Redirect to="/admin/" />;
         localStorage.setItem("authTokens", true);
-      //  localStorage.setItem("authTokens", true);
+        //  localStorage.setItem("authTokens", true);
         history.push("/admin");
       }
     });
@@ -93,6 +96,8 @@ export default function SignIn() {
             label="Email Address"
             name="email"
             autoComplete="email"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             autoFocus
           />
           <TextField
@@ -105,6 +110,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
