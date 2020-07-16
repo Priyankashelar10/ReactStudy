@@ -2,7 +2,7 @@ import React from "react";
 // react plugin for creating charts
 import ChartistGraph from "react-chartist";
 // @material-ui/core
-import {withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 
 import axios from "axios";
@@ -45,7 +45,9 @@ import styles from "assets/jss/material-dashboard-react/views/dashboardStyle.js"
 class Dashboard1 extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = {
+       username : "" ,
+       password: ""};
   }
 
   callAPI() {
@@ -54,7 +56,7 @@ class Dashboard1 extends React.Component {
     //   .then((res) => this.setState({ apiResponse: res }));
 
     axios.get("http://localhost:9000/testAPI").then((res) => {
-      this.setState({ apiResponse: res.data});
+      //this.setState({ apiResponse: res.data });
     });
   }
 
@@ -68,19 +70,24 @@ class Dashboard1 extends React.Component {
       Authorization: "JWT fefege...",
     };
 
-    axios
-      .post("http://localhost:9000/authUser", postData, {
-        headers: headers,
-      })
-      .then((res) => {
-        debugger;
-       // this.setState({ apiResponse: res.data });
-      });
+    // axios
+    //   .post("http://localhost:9000/authUser", postData, {
+    //     headers: headers,
+    //   })
+    //   .then((res) => {
+    //     debugger;
+    //    // this.setState({ apiResponse: res.data });
+    //   });
+
+    axios.post("http://localhost:9000/authUser", postData).then((res) => {
+      debugger;
+      // this.setState({ apiResponse: res.data });
+    });
   }
 
   componentDidMount() {
-   // this.callAPI();
-   this.FirstPostRequest();
+    // this.callAPI();
+    this.FirstPostRequest();
   }
 
   render() {
