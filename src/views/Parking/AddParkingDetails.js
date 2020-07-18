@@ -1,6 +1,7 @@
 import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import PropTypes from "prop-types";
+import { AddParkingDetailsAPI, GetAllAPrkingDataAPI } from "../../utility.js";
 
 // core components
 import GridItem from "components/Grid/GridItem.js";
@@ -34,29 +35,29 @@ class AddParkingDetails extends React.Component {
     let isFormValidate = true;
     if (this.state.flatNo.length === 0) {
       isFormValidate = false;
-     this.setState({ validFlatNo : "Required flat No."});
+      this.setState({ validFlatNo: "Required flat No." });
     } else {
-      this.setState({validFlatNo : ""});
+      this.setState({ validFlatNo: "" });
     }
     if (this.state.firstName.length === 0) {
       isFormValidate = false;
-      this.setState({ validFirstName : "Required First nme"});
+      this.setState({ validFirstName: "Required First nme" });
     } else {
-      this.setState({validFirstName : ""});
+      this.setState({ validFirstName: "" });
     }
 
     if (this.state.lastName.length === 0) {
       isFormValidate = false;
-      this.setState({ validLastName : "Required last Name"});
+      this.setState({ validLastName: "Required last Name" });
     } else {
-      this.setState({validLastName : ""});
+      this.setState({ validLastName: "" });
     }
 
     if (this.state.parkingNo.length === 0) {
       isFormValidate = false;
-      this.setState({ validParkingNo : "Required parking No."});
+      this.setState({ validParkingNo: "Required parking No." });
     } else {
-      this.setState({validParkingNo : ""});
+      this.setState({ validParkingNo: "" });
     }
     return isFormValidate;
   };
@@ -64,6 +65,12 @@ class AddParkingDetails extends React.Component {
   btnAddParking = (event) => {
     if (this.validateForm()) {
       console.log("Valid form");
+
+      AddParkingDetailsAPI({
+        flatNo: this.state.flatNo,
+        parkingNo: this.state.parkingNo,
+      });
+      GetAllAPrkingDataAPI();
     } else {
       console.log("not valid  form");
     }
