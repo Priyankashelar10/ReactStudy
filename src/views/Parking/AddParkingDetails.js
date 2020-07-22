@@ -65,12 +65,14 @@ class AddParkingDetails extends React.Component {
   btnAddParking = (event) => {
     if (this.validateForm()) {
       console.log("Valid form");
+      debugger;
 
-      AddParkingDetailsAPI({
+      const result = AddParkingDetailsAPI({
         flatNo: this.state.flatNo,
         parkingNo: this.state.parkingNo,
-      });
-      GetAllAPrkingDataAPI();
+      },GetAllAPrkingDataAPI);
+
+     // GetAllAPrkingDataAPI();
     } else {
       console.log("not valid  form");
     }
