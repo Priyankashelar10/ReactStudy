@@ -1,22 +1,17 @@
 import React from "react";
+import HOCChild from './HOCChild.js';
 
-class ButtonCLick extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-    };
+const hocOfClick = (originalComponent) => {
+  class HOCofClick extends React.Component {
+    render() {
+      return <originalComponent></originalComponent>;
+    }
   }
 
-  IncreamentCount = () => {
-    const countValue = this.state.count;
-    this.setState({ count: countValue + 1 });
-  };
+  return HOCofClick;
+};
 
-  render() {
-    return <button onClick={this.IncreamentCount}>{this.state.count}</button>;
-  }
-}
+
 
 class DivClick extends React.Component {
   constructor(props) {
@@ -40,7 +35,7 @@ class HOCExample extends React.Component {
   render() {
     return (
       <div>
-        <ButtonCLick></ButtonCLick>
+        <HOCChild></HOCChild>
         <DivClick></DivClick>
       </div>
     );
