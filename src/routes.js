@@ -37,6 +37,9 @@ import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 import RTLPage from "views/RTLPage/RTLPage.js";
 
 import AddParkingDetailsPage from "views/Parking/AddParkingDetails.js";
+import ParkingGridPage from "views/Parking/ParkingGrid.js";
+
+
 
 const dashboardRoutes = [
   {
@@ -53,6 +56,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: AddParkingDetailsPage,
+    layout: "/admin"
+  },
+  {
+    path: "/ParkingGrid",
+    name: "All Parking Details",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: ParkingGridPage,
     layout: "/admin"
   },
   {
