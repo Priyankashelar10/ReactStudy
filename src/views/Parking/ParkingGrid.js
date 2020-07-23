@@ -11,6 +11,37 @@ class AddNumbers extends PureComponent {
   }
 }
 
+class ErrorBoundry extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hasError: false,
+    };
+  }
+
+  static getDerivedStateFromError(Error) {
+    //this.setState({ hasError: true });
+    return{
+        hasError : true
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <div>Something went wrong</div>;
+    }
+
+    return this.props.children
+  }
+}
+
+function Hero(props) {
+  if (props.heroName === "Jocker") {
+    throw new Error("Jocker is not a hero");
+  }
+  return <div>{props.heroName}</div>;
+}
+
 class ParkingGrid extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +52,9 @@ class ParkingGrid extends React.Component {
   }
 
   btnRemoveNUmber = () => {
-    console.log("Before Remove number currentCount: " + this.state.currentCount);
+    console.log(
+      "Before Remove number currentCount: " + this.state.currentCount
+    );
 
     this.setState(
       (state) => {
@@ -62,12 +95,21 @@ class ParkingGrid extends React.Component {
 
     return (
       <div>
-        <button onClick={this.btnAddNUmber}> Add Number</button>{" "}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-        <button onClick={this.btnRemoveNUmber}> Remove Number</button>
-        {this.state.count.map((num) => (
-          <AddNumbers number={num}></AddNumbers>
-        ))}
+        <ErrorBoundry>
+          <Hero heroName="Shaktiman"></Hero>
+        </ErrorBoundry>
+        <ErrorBoundry>
+          <Hero heroName="Jocker"></Hero>
+        </ErrorBoundry>
+
+        <ErrorBoundry>
+          <button onClick={this.btnAddNUmber}> Add Number</button>{" "}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+          <button onClick={this.btnRemoveNUmber}> Remove Number</button>
+          {this.state.count.map((num) => (
+            <AddNumbers number={num}></AddNumbers>
+          ))}
+        </ErrorBoundry>
       </div>
     );
   }
