@@ -6,7 +6,7 @@ class ContextMain extends React.Component {
   render() {
     return (
       <div>
-        <TestProvider value="Priyanka">
+        <TestProvider value={{ "name": "Priya","surname" : "Shelar" }}>
           Hi I am context Main page
           <br></br>
           <ChildA></ChildA>

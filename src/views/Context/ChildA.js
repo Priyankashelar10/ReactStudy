@@ -9,7 +9,7 @@ class ChildA extends React.Component {
 
     return (
       <div>
-        Hi I am Child A {this.context}<br></br>
+        Hi I am Child A {this.context.name}<br></br>
         <ChildB></ChildB>
       </div>
     );
