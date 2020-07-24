@@ -1,15 +1,6 @@
 import React from "react";
 import HOCChild from './HOCChild.js';
 
-const hocOfClick = (originalComponent) => {
-  class HOCofClick extends React.Component {
-    render() {
-      return <originalComponent></originalComponent>;
-    }
-  }
-
-  return HOCofClick;
-};
 
 
 
