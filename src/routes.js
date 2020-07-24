@@ -39,7 +39,7 @@ import RTLPage from "views/RTLPage/RTLPage.js";
 import AddParkingDetailsPage from "views/Parking/AddParkingDetails.js";
 import ParkingGridPage from "views/Parking/ParkingGrid.js";
 import HOCExamplePage from "views/HOC/HOCExample.js";
-
+import ContextMainPage from "views/Context/ContextMain.js";
 
 
 const dashboardRoutes = [
@@ -73,6 +73,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: HOCExamplePage,
+    layout: "/admin"
+  },
+  {
+    path: "/ContextExample",
+    name: "Context",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: ContextMainPage,
     layout: "/admin"
   },
   {
