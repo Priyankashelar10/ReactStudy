@@ -40,6 +40,8 @@ import AddParkingDetailsPage from "views/Parking/AddParkingDetails.js";
 import ParkingGridPage from "views/Parking/ParkingGrid.js";
 import HOCExamplePage from "views/HOC/HOCExample.js";
 import ContextMainPage from "views/Context/ContextMain.js";
+import RefParentPage from "views/RefStudy/RefParent.js";
+
 
 
 const dashboardRoutes = [
@@ -81,6 +83,14 @@ const dashboardRoutes = [
     rtlName: "لوحة القيادة",
     icon: Dashboard,
     component: ContextMainPage,
+    layout: "/admin"
+  },
+  {
+    path: "/refStudy",
+    name: "Ref",
+    rtlName: "لوحة القيادة",
+    icon: Dashboard,
+    component: RefParentPage,
     layout: "/admin"
   },
   {
